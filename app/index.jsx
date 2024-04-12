@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import {  Text, View } from 'react-native';
-import {Link} from "expo-router";
+import {Link,SplashScreen} from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
+// prevent hiding before loading assets
+SplashScreen.preventAutoHideAsync();
 export default function App() {
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -33,9 +35,9 @@ export default function App() {
 
   return (
     <View className="bg-white flex-1 justify-center items-center" >
-      <Text className="text-3xl">Aura app!</Text>
+      <Text className="text-3xl font-pblack">Aura app!</Text>
       <StatusBar   />
-      <Link href="/profile">Go to Profile</Link>
+      <Link className=' text-blue-500' href="/profile">Go to Profile</Link>
     </View>
   );
 }
